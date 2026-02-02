@@ -10,5 +10,5 @@ en:
         add_rating: "Add your rating: "
         user_review:
           placeholder: "Include your review to the user (optional)"
-        empty_state_title: "There are no feedbacks yet"
-        empty_state_body: "Feedbacks will be displayed once you get feedback from your fellow community members"
+        empty_state_title: "There is no feedback for this user yet."
+        empty_state_body: "Feedback will be displayed once there is feedback from the fellow community members."

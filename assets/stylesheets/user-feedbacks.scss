@@ -1,3 +1,4 @@
+
 .user-ratings {
   .rating {
     display: inline-block;
@@ -6,7 +7,6 @@
     font-size: $font-up-1;
     align-items: center;
     cursor: default;
-    margin-left: 0.25em;
   }
 
   .icon {
@@ -39,6 +39,14 @@
     left: 0;
     overflow: hidden;
   }
+}
+
+.rating-data .user-ratings .rating, .topic-post .user-ratings .rating {
+  margin-left: 0.25em;
+}
+
+.user-card .first-row .names span.icon {
+  display: inline;
 }
 
 .user-feedbacks-right {
