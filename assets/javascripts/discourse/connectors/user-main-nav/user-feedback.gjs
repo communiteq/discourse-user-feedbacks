@@ -19,7 +19,7 @@ export default class UserFeedback extends Component {
 
     if (this.model.id <= 0 ||
       (this.siteSettings.user_feedbacks_hide_feedbacks_from_user &&
-        this.currentUser.id == this.model.id &&
+        this.currentUser.id === this.model.id &&
         !this.currentUser.admin)
     ) {
       return false;

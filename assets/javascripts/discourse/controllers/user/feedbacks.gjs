@@ -1,17 +1,18 @@
+import { tracked } from "@glimmer/tracking";
 import Controller from "@ember/controller";
 import { action, set } from "@ember/object";
-import { tracked } from "@glimmer/tracking";
-import { ajax } from "discourse/lib/ajax";
-import I18n from "I18n";
 import { service } from "@ember/service";
+import { ajax } from "discourse/lib/ajax";
+import { i18n } from "discourse-i18n";
 
 export default class UserFeedbacksController extends Controller {
   @service siteSettings;
-  @tracked rating = 0;mv
-  @tracked review = "";
+
+  @tracked rating = 0;@tracked review = "";
   @tracked readOnly = false;
   @tracked feedback_to_id = null;
-  placeholder = I18n.t("discourse_user_feedbacks.user_feedbacks.user_review.placeholder");
+
+  placeholder = i18n("discourse_user_feedbacks.user_feedbacks.user_review.placeholder");
 
   get canGiveFeedback() {
     return this.feedback_to_id !== this.currentUser && this.currentUser.id;
@@ -22,7 +23,7 @@ export default class UserFeedbacksController extends Controller {
   }
 
   get disabled() {
-    return !parseInt(this.rating) > 0;
+    return !parseInt(this.rating, 10) > 0;
   }
 
   @action
@@ -36,7 +37,7 @@ export default class UserFeedbacksController extends Controller {
     ajax("/user_feedbacks", {
       type: "POST",
       data: {
-        rating: parseInt(this.rating),
+        rating: parseInt(this.rating, 10),
         review: this.review,
         feedback_to_id: this.feedback_to_id,
       },

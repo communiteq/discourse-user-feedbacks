@@ -1,4 +1,3 @@
-
 .user-ratings {
   .rating {
     display: inline-block;
@@ -41,7 +40,8 @@
   }
 }
 
-.rating-data .user-ratings .rating, .topic-post .user-ratings .rating {
+.rating-data .user-ratings .rating,
+.topic-post .user-ratings .rating {
   margin-left: 0.25em;
 }
 

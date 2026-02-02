@@ -1,17 +1,12 @@
 import Component from "@glimmer/component";
+import { tracked } from "@glimmer/tracking";
+import { fn } from "@ember/helper";
+import { on } from "@ember/modifier";
 import { action } from "@ember/object";
 import { htmlSafe } from "@ember/template";
-import { on } from "@ember/modifier"
-import { fn } from "@ember/helper";
-import { classNames, tagName } from "@ember-decorators/component";
-import { tracked } from "@glimmer/tracking";
 
 export default class RatingInput extends Component {
   @tracked value = this.args.value || 0;
-
-  get readOnly() {
-    return this.args.readOnly || false;
-  }
 
   iconClasses = (starIndex) => {
     let classes = [];
@@ -25,22 +20,30 @@ export default class RatingInput extends Component {
       classes.push('read-only');
     }
     return classes.join(' ');
+  };
+widthPercentage = (starIndex) => {
+    return htmlSafe("width: " + this.calculatePercentage(starIndex) + "%;");
+  };
+
+get readOnly() {
+    return this.args.readOnly || false;
   }
 
-  calculatePercentage(n) {
+
+
+
+calculatePercentage(n) {
     const value = parseFloat(this.value);
-    if (value >= n) return 100;
-    if (value < n - 1) return 0;
+    if (value >= n) {return 100;}
+    if (value < n - 1) {return 0;}
     return ((Math.round(value * 100) / 100) % 1) * 100;
   }
 
-  widthPercentage = (starIndex) => {
-    return htmlSafe("width: " + this.calculatePercentage(starIndex) + "%;");
-  }
+
 
   @action
   changeRating(val) {
-    if (this.readOnly) return;
+    if (this.readOnly) {return;}
     if (this.args.onChange) {
       this.args.onChange(val);
     }

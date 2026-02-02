@@ -1,8 +1,8 @@
 import Component from "@glimmer/component";
-import RatingInput from "../../components/rating-input";
-import { i18n } from "discourse-i18n";
 import { LinkTo } from "@ember/routing";
 import { service } from "@ember/service";
+import { i18n } from "discourse-i18n";
+import RatingInput from "../../components/rating-input";
 
 export default class AverageRatings extends Component {
   @service siteSettings;
