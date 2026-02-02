@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 # name: discourse-user-feedbacks
 # about: allow user to give feedback to fellow users
-# version: 1.0.0
-# authors: Ahmed Gagan
+# version: 2026.1
+# authors: Ahmed Gagan / Communiteq
 # url: https://github.com/Ahmedgagan/discourse-user-feedbacks
 
 enabled_site_setting :user_feedbacks_enabled
@@ -11,7 +11,7 @@ if respond_to?(:register_svg_icon)
   register_svg_icon "fas fa-star"
 end
 
-register_asset 'stylesheets/user-feedbacks.scss'
+register_asset "stylesheets/user-feedbacks.scss"
 
 after_initialize do
   module ::DiscourseUserFeedbacks
